@@ -56,7 +56,7 @@
 <script>
 
     // URL from which JSON data will be fetched
-    const url = "http://localhost:8080/pizzas"; //cambiar a aws
+    const url = "http://WaldosPizza-env.eba-ushjrqyu.us-east-1.elasticbeanstalk.com/pizzas"; //cambiar a aws
 
     // Function to populate table from JSON data
     async function populateTableFromJSON(url) {
@@ -155,7 +155,7 @@
         };
 
 
-        const apiUrl = "http://localhost:8080/pizzas"; //cambiar a aws
+        const apiUrl = "http://WaldosPizza-env.eba-ushjrqyu.us-east-1.elasticbeanstalk.com/pizzas"; //cambiar a aws
 
 
         // Configure the request
@@ -208,7 +208,7 @@
         }
     }
     function deletePizza(id) {
-        const deleteUrl = "http://localhost:8080/pizzas/delete-pizza-by-id?id="+id; //cambiar a aws
+        const deleteUrl = "http://WaldosPizza-env.eba-ushjrqyu.us-east-1.elasticbeanstalk.com/pizzas/delete-pizza-by-id?id="+id; //cambiar a aws
         fetch(deleteUrl, {
             method: 'DELETE',
             headers: {
