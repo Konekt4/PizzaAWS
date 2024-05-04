@@ -125,10 +125,17 @@
                     return response.json();
                 })
                 .then(pizzaFromAPI => {
-                    console.log('Success:', pizzaFromAPI);
-                    cleanScreen();
+                    if (pizzaFromAPI && pizzaFromAPI.id === -1) {
+                        // Si la respuesta indica que hay datos repetidos
+                        alert("El codigo ingresado ya existe. Por favor, considere cambios al pedido.");
+                    } else {
+                        // Si no hay errores, limpiar la pantalla
+                        console.log('Success:', pizzaFromAPI);
+                        cleanScreen();
+                    }
                 })
-                .catch(error => {
+
+                    .catch(error => {
                     console.error('Error:', error);
                     // Handle error here
                 });

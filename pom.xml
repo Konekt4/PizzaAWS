@@ -10,10 +10,10 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>PizzaAWS</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>PizzaAWS</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Demo project for AWS</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

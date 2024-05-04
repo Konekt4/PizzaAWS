@@ -14,17 +14,16 @@ public class PizzaService {
     PizzaRepository repository;
 
     public PizzaModel savePizza(PizzaModel pizza){
-        if(repository.findPizzaModelByCode(pizza.getCode()).toString().equals("Optional[[]]")){
+        Optional<ArrayList<PizzaModel>> existingPizzas = repository.findPizzaModelByCode(pizza.getCode());
+
+        if (existingPizzas.isPresent() && existingPizzas.get().isEmpty()) {
             return repository.save(pizza);
-        }else{
-            //retornar un error de repetido
+        } else {
+            // Retornar un error de repetido
             PizzaModel pizzaError = new PizzaModel();
             pizzaError.setId(-1L);
             return pizzaError;
         }
-
-
-
     }
 
     public ArrayList<PizzaModel> getAllPizzas(){
