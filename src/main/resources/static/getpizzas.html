@@ -119,10 +119,10 @@
         //cambiar el texto y color del boton de editar por guardar
         let editButton = row.children.item(7).children.item(1);
         editButton.setAttribute("class","btn btn-success");
-        editButton.innerHTML = "Save";
+        editButton.innerHTML = "Guardar";
 
 
-        //al presionar el botón de guardar mandar llamar al metodo saveStudent(con los datos de la fila)
+        //al presionar el botón de guardar mandar llamar al metodo savePizza(con los datos de la fila)
         editButton.setAttribute("onClick","savePizza("+buttonPressId+")");
 
     }
@@ -176,8 +176,16 @@
                 return response.json();
             })
             .then(pizzaFromAPI => {
-                console.log('Success:', pizzaFromAPI);
-                populateTableFromJSON(url);
+                if (pizzaFromAPI && pizzaFromAPI.id === -1) {
+                    // Si la respuesta indica que hay datos repetidos
+                    alert("El codigo ingresado ya existe. Por favor, considere cambios al pedido.");
+                } else {
+                    // Si no hay errores, limpiar la pantalla
+                    alert("¡Se registró el pedido correctamente!");
+                    console.log('Success:', pizzaFromAPI);
+                    populateTableFromJSON(url);
+                }
+
             })
             .catch(error => {
                 console.error('Error:', error);
